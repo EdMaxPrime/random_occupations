@@ -1,3 +1,5 @@
+import random
+
 def parseCSV(csv, includeFirstLine):
     rows = csv.split("\n")
     if(not includeFirstLine):
@@ -20,6 +22,14 @@ def parseCSV(csv, includeFirstLine):
             valuesByRow.append(columns)
     return valuesByRow
 
+def makeDictionary(parsedCSV):
+    dict = {}
+    for row in parsedCSV:
+        dict[row[0]] = float(row[1])
+    return dict
+
 file = open("occupations.csv", 'r')
-parseCSV(file.read(), True)
+a = parseCSV(file.read(), False)
+a = a[:-1]
+dict = makeDictionary(a)
 file.close()
