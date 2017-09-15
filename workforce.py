@@ -28,8 +28,19 @@ def makeDictionary(parsedCSV):
         dict[row[0]] = float(row[1])
     return dict
 
+def randJob(total,dict):
+    count=0;
+    ranInt=random.randint(0,total);
+    for item in dict:
+        count+=dict[item]*10;
+        if(ranInt<count):
+            return item;
+
+    
 file = open("occupations.csv", 'r')
 a = parseCSV(file.read(), False)
+total=float(a[-1][1])*10;
 a = a[:-1]
 dict = makeDictionary(a)
 file.close()
+print randJob(total,dict);
