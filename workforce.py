@@ -37,12 +37,9 @@ def randJob(total,dict):
             return item;
 
     
-file = open("test.csv", 'r')
+file = open("occupations.csv", 'r')
 a = parseCSV(file.read(), False)
 total=float(a[-1][1])*10;
 a = a[:-1]
 dict = makeDictionary(a)
 file.close()
-for i in range(1, 1000):
-    if(randJob(total, dict) != "Hello"):
-        print i
