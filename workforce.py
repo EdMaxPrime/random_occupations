@@ -30,7 +30,7 @@ def makeDictionary(parsedCSV):
 
 def randJob(total,dict):
     count=0;
-    ranInt=random.randint(0,total);
+    ranInt=random.randrange(0,total);
     for item in dict:
         count+=dict[item]*10;
         if(ranInt<count):
@@ -43,4 +43,6 @@ total=float(a[-1][1])*10;
 a = a[:-1]
 dict = makeDictionary(a)
 file.close()
-print randJob(total,dict);
+for i in range(1, 1000):
+    if(randJob(total, dict) != "Hello"):
+        print i
